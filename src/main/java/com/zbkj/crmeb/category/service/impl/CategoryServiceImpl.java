@@ -287,6 +287,7 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, Category> impl
             lambdaQueryWrapper.like(Category::getName,name);
         }
 
+        System.out.println(12123);
         lambdaQueryWrapper.orderByDesc(Category::getSort);
         lambdaQueryWrapper.orderByAsc(Category::getId);
         List<Category> allTree = dao.selectList(lambdaQueryWrapper);
