@@ -139,11 +139,13 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, Category> impl
         LambdaQueryWrapper<Category> lambdaQueryWrapper = new LambdaQueryWrapper<>();
         lambdaQueryWrapper.in(Category::getId, pathIdList).eq(Category::getUrl, uri);
         List<Category> categoryList = dao.selectList(lambdaQueryWrapper);
-        if(categoryList.size() < 1){
+        if (categoryList.size() < 1){
             return false;
+        }else {
+            return true;
         }
 
-        return true;
+
     }
 
     /**
@@ -287,7 +289,7 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, Category> impl
             lambdaQueryWrapper.like(Category::getName,name);
         }
 
-        System.out.println(12123);
+        System.out.println("qweqwed");
         lambdaQueryWrapper.orderByDesc(Category::getSort);
         lambdaQueryWrapper.orderByAsc(Category::getId);
         List<Category> allTree = dao.selectList(lambdaQueryWrapper);
